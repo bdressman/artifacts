@@ -8,10 +8,10 @@ try {
     const data = await fight(config.CHARACTERS[0]);
 
     // Avoiding name collision:
-    const { fight: battle, cooldown } = data
-    const fightStats = battle.characters[0];
+    const { fight: fightResult, cooldown } = data
+    const fightStats = fightResult.characters[0];
 
-    console.log(battle.result === "win" ? "🏆 Fight won!" : "💀 Fight lost!");
+    console.log(fightResult.result === "win" ? "🏆 Fight won!" : "💀 Fight lost!");
     console.log(`⚔️  XP gained: ${fightStats.xp} | HP remaining: ${fightStats.final_hp}`);
 
     if (fightStats.drops && fightStats.drops.length > 0) {
