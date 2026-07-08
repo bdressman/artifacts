@@ -51,3 +51,6 @@ node .\src\tutorial_revisit\[tutorial file]
 
 ## Movement
 I have added steps 2,5,7 as they are movement entries and created an API call for move. These are small steps towards my goals of fully abstracting out the API, but using these tutorials as my scaffolding is very helpful.
+
+## Fighting
+I created the fight api call and updated the tutorial on fighting the chicken. There is a small change to the destructuring as it causes a naming collision on fight. Other than that, things are basically the same. These are all as small of changes as I can do in order to start moving towards a usable API.
