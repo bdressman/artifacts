@@ -40,3 +40,14 @@ Here we equip the wooden staff that we just created. However, it looks like ther
 
 ### Tutorial Completed
 Okay, there's some interesting things to work on here.
+
+The first thing I want to do is take the existing tutorial scripts and collapse out the movement into one script where I pass it as an argument of where to go. We will preserve the existing tutorial scripts and create a new tutorial directory called tutorial_revisit.
+
+For those you would run:
+
+```
+node .\src\tutorial_revisit\[tutorial file]
+```
+
+## Movement
+I have added steps 2,5,7 as they are movement entries and created an API call for move. These are small steps towards my goals of fully abstracting out the API, but using these tutorials as my scaffolding is very helpful.
