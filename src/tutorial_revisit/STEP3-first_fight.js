@@ -1,14 +1,17 @@
 import { config } from '../config.js';
 import { fight } from '../api/fight.js'
+import { perform } from '../utils/perform.js'
 
 // Be sure you have moved to chicken first.
 // Fight chicken
 
+const character = config.CHARACTERS[0];
+
 try {
-    const data = await fight(config.CHARACTERS[0]);
+    const result = await perform(() => fight(character));
 
     // Avoiding name collision:
-    const { fight: fightResult, cooldown } = data
+    const { fight: fightResult, cooldown } = result;
     const fightStats = fightResult.characters[0];
 
     console.log(fightResult.result === "win" ? "🏆 Fight won!" : "💀 Fight lost!");
