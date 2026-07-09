@@ -1,5 +1,5 @@
 export async function waitForCooldown(cooldown) {
-    if(!cooldown.expiration)
+    if(!cooldown?.expiration)
         return;
 
     const expiration = new Date(cooldown.expiration);
