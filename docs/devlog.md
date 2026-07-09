@@ -60,3 +60,7 @@ I created the fight api call and updated the tutorial on fighting the chicken. T
 
 ### Resting
 Pretty standard update now and I'm starting to see the pattern of how to implement more commands.
+
+### Gathering
+Same update as resting really, but this introduces an interesting point to enhance the behavior. Since we need 4 wood, we can take this moment to have the script gather 4 times. So, now it uses some util functions to handle the cooldown and also allows for a general perform action function, which should be updated for all existing tutorial_revisit code calls.
+
