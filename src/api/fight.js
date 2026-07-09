@@ -1,13 +1,4 @@
-import { config } from '../config.js';
-
-const TOKEN = config.TOKEN;
-
-// Authentication headers — your token identifies you on the server
-const headers = {
-  "Accept": "application/json",
-  "Content-Type": "application/json",
-  "Authorization": `Bearer ${TOKEN}`
-};
+import { headers } from '../utils/headers.js'
 
 export async function fight(character) {
     // API endpoint to start a fight against the monster on the current tile

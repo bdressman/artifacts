@@ -64,3 +64,5 @@ Pretty standard update now and I'm starting to see the pattern of how to impleme
 ### Gathering
 Same update as resting really, but this introduces an interesting point to enhance the behavior. Since we need 4 wood, we can take this moment to have the script gather 4 times. So, now it uses some util functions to handle the cooldown and also allows for a general perform action function, which should be updated for all existing tutorial_revisit code calls.
 
+### Intermission: Headers
+So, every API call has a header that I can abstract out going forward. Every addition will require it later, so it's better to just do it now.
