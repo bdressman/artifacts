@@ -1,10 +1,15 @@
 import { config } from "../config.js";
 import { move } from "../api/move.js";
+import { perform } from '../utils/perform.js'
 
 // Move to chicken according to original tutorial entry #2
 
+const character = config.CHARACTERS[0];
+
 try {
-  const { destination, cooldown } = await move(config.CHARACTERS[0], 0, 1);
+  const result = await perform(() => move(character, 0, 1));
+  const { destination, cooldown } = result;
+
   console.log(`✅ Moved to (${destination.x}, ${destination.y}) on ${destination.name}`);
   console.log(`⏳ Cooldown started: ${cooldown.total_seconds} seconds`);
 
