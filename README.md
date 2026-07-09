@@ -29,3 +29,4 @@ npm start
 - [Development Journal](docs/devlog.md)
 - [Architecture Notes](docs/architecture.md)
 - [Future Ideas](docs/ideas.md)
+- [TODO Items](docs/todo.md)
