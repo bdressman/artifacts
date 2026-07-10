@@ -5,3 +5,6 @@ Should update the cooldown to behave accurately. Currently, it acts as if the co
 
 ## Unequip
 Should be able to handle different slots and quantities but currently only coded to tutorial step 8.
+
+## Equip
+Should be able to handle different slots and quantities but currently only coded to tutorial step 10.
