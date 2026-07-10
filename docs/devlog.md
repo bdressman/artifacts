@@ -71,3 +71,6 @@ So, every API call has a header that I can abstract out going forward. Every add
 Back at it. This should be the same routine. Things are becoming familiar now and my early refactoring should allow for an easier time.
 
 As it turns out, there are some intricacies with this regarding slots and quantity, but I will not worry about that for now.
+
+### Equip
+Same with unequip, I will forego the intricacies of the call for now and instead simply impelement the tutorial.
