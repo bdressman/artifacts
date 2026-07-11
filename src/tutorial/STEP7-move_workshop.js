@@ -6,23 +6,23 @@ const CHARACTER_NAME = config.CHARACTERS[0];
 // Move to tile (2, 1) where the workshop is located
 const url = `https://api.artifactsmmo.com/my/${CHARACTER_NAME}/action/move`;
 const headers = {
-  "Accept": "application/json",
-  "Content-Type": "application/json",
-  "Authorization": `Bearer ${TOKEN}`
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${TOKEN}`
 };
 
 // Target coordinates: the workshop
 const body = JSON.stringify({ x: 2, y: 1 });
 
 try {
-  const response = await fetch(url, { method: "POST", headers, body });
-  const data = await response.json();
-  
-  if (data.error) throw new Error(data.error.message);
-  
-  const { destination, cooldown } = data.data;
-  console.log(`✅ Moved to (${destination.x}, ${destination.y}) on ${destination.name}`);
-  console.log(`⏳ Cooldown started: ${cooldown.total_seconds} seconds`);
+    const response = await fetch(url, { method: "POST", headers, body });
+    const data = await response.json();
+
+    if (data.error) throw new Error(data.error.message);
+
+    const { destination, cooldown } = data.data;
+    console.log(`✅ Moved to (${destination.x}, ${destination.y}) on ${destination.name}`);
+    console.log(`⏳ Cooldown started: ${cooldown.total_seconds} seconds`);
 } catch (error) {
-  console.error("❌ " + error);
+    console.error("❌ " + error);
 }

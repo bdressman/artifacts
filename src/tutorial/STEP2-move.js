@@ -19,9 +19,9 @@ const body = JSON.stringify({ x: 0, y: 1 });
 try {
   const response = await fetch(url, { method: "POST", headers, body });
   const data = await response.json();
-  
+
   if (data.error) throw new Error(data.error.message);
-  
+
   const { destination, cooldown } = data.data;
   console.log(`✅ Moved to (${destination.x}, ${destination.y}) on ${destination.name}`);
   console.log(`⏳ Cooldown started: ${cooldown.total_seconds} seconds`);

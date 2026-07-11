@@ -20,7 +20,7 @@ try {
     if (fightStats.drops && fightStats.drops.length > 0) {
         const dropsStr = fightStats.drops.map(d => `${d.quantity}x ${d.code}`).join(", ");
         console.log(`🎁 Loot dropped: ${dropsStr}`);
-  }
-} catch(error) {
+    }
+} catch (error) {
     console.error("❌ " + error);
 }

@@ -7,7 +7,7 @@ export async function fight(character) {
     const response = await fetch(url, { method: "POST", headers });
     const data = await response.json();
 
-    if (data.error) 
+    if (data.error)
         throw new Error(data.error.message);
 
     return data.data;
