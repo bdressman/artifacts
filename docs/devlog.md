@@ -74,3 +74,16 @@ As it turns out, there are some intricacies with this regarding slots and quanti
 
 ### Equip
 Same with unequip, I will forego the intricacies of the call for now and instead simply impelement the tutorial.
+
+### Crafting
+Business as usual.
+
+Or it was... until I realized that the wooden_stick is actually only a starting item. 
+
+```
+"craft": null,
+```
+
+And that is not good. That means that if I want to follow my idea of creating a final complete_tutorial.cs file where it essentially performs the entire tutorial automatically, I would have to create a new character.
+
+But, I think this is a good stopping point for the tutorial jam. It got me familar with some aspects of the API, how the game works, and gave me a starting point for the project. It's time to move on to a more intimate treatment of the API. 
