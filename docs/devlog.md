@@ -87,3 +87,86 @@ Or it was... until I realized that the wooden_stick is actually only a starting 
 And that is not good. That means that if I want to follow my idea of creating a final complete_tutorial.cs file where it essentially performs the entire tutorial automatically, I would have to create a new character.
 
 But, I think this is a good stopping point for the tutorial jam. It got me familar with some aspects of the API, how the game works, and gave me a starting point for the project. It's time to move on to a more intimate treatment of the API. 
+
+## API Dive
+https://api.artifactsmmo.com/openapi.json
+
+There are a few layers to this. The first is site level where no authentication is needed at all. It gives information regarding the game with calls like "Get Server Details". The second is account level. These require usage of your token and operate across characters. There is a further distinction between game-level account information and system-level information. For example, "Get Bank Items" is a game-level call but "Change Password" is a system-level call.
+
+After that, there's the actions of the character which are game-level calls.
+
+I only really want to focus on actually playing the game rather than allowing interactions with system-level details.
+
+I'm not trying to build a user interface to the game or anything. I want to create bots that will do the operations.
+
+Like I said prior, I believe the tutorials have given a really good foundation, so let's switch gears and do a small runner.
+
+## Runners
+
+### Chicken Slayer
+Let's take a simple task we already have done in the tutorial and automate it until some condition is met.
+
+First, let's look at our chicken a little closer:
+
+```
+{
+  "data": {
+    "name": "Chicken",
+    "code": "chicken",
+    "level": 1,
+    "type": "normal",
+    "hp": 60,
+    "attack_fire": 0,
+    "attack_earth": 0,
+    "attack_water": 4,
+    "attack_air": 0,
+    "res_fire": 0,
+    "res_earth": 0,
+    "res_water": 0,
+    "res_air": 0,
+    "critical_strike": 0,
+    "initiative": 50,
+    "effects": [],
+    "min_gold": 0,
+    "max_gold": 3,
+    "drops": [
+      {
+        "code": "raw_chicken",
+        "rate": 2,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "egg",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "feather",
+        "rate": 8,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "golden_egg",
+        "rate": 1000,
+        "min_quantity": 1,
+        "max_quantity": 1
+      }
+    ]
+  }
+}
+```
+#### The Plan
+What we're going to do here for the first runner is kill chickens and rest - forever. Easiest it can get.
+
+Steps:
+1. Fight chicken (enters cooldown, HPs go down)
+2. Rest
+3. GOTO 1.
+
+### Pause
+Okay, I'm not making a lot of progress here with my current approach, so I have instead decided to create a playground branch where I will simply create the scripts to do actions and as I go, incorporate things into features and then finally into main.
+
+I expect the playground to be quite messy but I also intend for nothing in it to directly go to main.
