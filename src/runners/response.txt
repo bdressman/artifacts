@@ -1,0 +1,147 @@
+{
+  "character": "Wendy",
+  "account": "gimpycoder",
+  "type": "crafting",
+  "description": "Wendy crafted ash_plank x1.",
+  "content": {
+    "item": "ash_plank",
+    "quantity": 1,
+    "skill": "woodcutting",
+    "xp_gained": 6,
+    "character": {
+      "name": "Wendy",
+      "account": "gimpycoder",
+      "skin": "women2",
+      "level": 4,
+      "xp": 329,
+      "max_xp": 450,
+      "gold": 168,
+      "speed": 100,
+      "mining_level": 1,
+      "mining_xp": 13,
+      "mining_max_xp": 150,
+      "woodcutting_level": 2,
+      "woodcutting_xp": 126,
+      "woodcutting_max_xp": 250,
+      "fishing_level": 1,
+      "fishing_xp": 0,
+      "fishing_max_xp": 150,
+      "weaponcrafting_level": 2,
+      "weaponcrafting_xp": 0,
+      "weaponcrafting_max_xp": 250,
+      "gearcrafting_level": 1,
+      "gearcrafting_xp": 0,
+      "gearcrafting_max_xp": 150,
+      "jewelrycrafting_level": 1,
+      "jewelrycrafting_xp": 0,
+      "jewelrycrafting_max_xp": 150,
+      "cooking_level": 6,
+      "cooking_xp": 267,
+      "cooking_max_xp": 950,
+      "alchemy_level": 1,
+      "alchemy_xp": 13,
+      "alchemy_max_xp": 150,
+      "hp": 135,
+      "max_hp": 135,
+      "haste": 0,
+      "critical_strike": 0,
+      "wisdom": 0,
+      "prospecting": 0,
+      "initiative": 100,
+      "threat": 0,
+      "attack_fire": 0,
+      "attack_earth": 0,
+      "attack_water": 0,
+      "attack_air": 5,
+      "dmg": 0,
+      "dmg_fire": 0,
+      "dmg_earth": 0,
+      "dmg_water": 0,
+      "dmg_air": 0,
+      "res_fire": 0,
+      "res_earth": 0,
+      "res_water": 0,
+      "res_air": 0,
+      "effects": [
+        {
+          "code": "alchemy",
+          "value": -10
+        }
+      ],
+      "x": -2,
+      "y": -3,
+      "layer": "overworld",
+      "map_id": 112,
+      "cooldown": 5,
+      "cooldown_expiration": "2026-07-17T08:31:46.732Z",
+      "weapon_slot": "apprentice_gloves",
+      "rune_slot": "",
+      "shield_slot": "",
+      "helmet_slot": "",
+      "body_armor_slot": "",
+      "leg_armor_slot": "",
+      "boots_slot": "",
+      "ring1_slot": "",
+      "ring2_slot": "",
+      "amulet_slot": "",
+      "artifact1_slot": "",
+      "artifact2_slot": "",
+      "artifact3_slot": "",
+      "utility1_slot": "",
+      "utility1_slot_quantity": 0,
+      "utility2_slot": "",
+      "utility2_slot_quantity": 0,
+      "bag_slot": "",
+      "task": "",
+      "task_type": "",
+      "task_progress": 0,
+      "task_total": 0,
+      "inventory_max_items": 106,
+      "inventory": [
+        {
+          "slot": 1,
+          "code": "sunflower",
+          "quantity": 1
+        },
+        {
+          "slot": 2,
+          "code": "egg",
+          "quantity": 5
+        },
+        {
+          "slot": 3,
+          "code": "sap",
+          "quantity": 1
+        },
+        {
+          "slot": 4,
+          "code": "feather",
+          "quantity": 11
+        },
+        {
+          "slot": 5,
+          "code": "wooden_staff",
+          "quantity": 1
+        },
+        {
+          "slot": 7,
+          "code": "apple",
+          "quantity": 2
+        },
+        {
+          "slot": 8,
+          "code": "copper_ore",
+          "quantity": 1
+        },
+        {
+          "slot": 9,
+          "code": "ash_plank",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  "cooldown": 5,
+  "cooldown_expiration": "2026-07-17T08:31:46.732Z",
+  "created_at": "2026-07-17T08:31:41.737Z"
+}
