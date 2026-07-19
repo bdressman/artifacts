@@ -170,3 +170,18 @@ Steps:
 Okay, I'm not making a lot of progress here with my current approach, so I have instead decided to create a playground branch where I will simply create the scripts to do actions and as I go, incorporate things into features and then finally into main.
 
 I expect the playground to be quite messy but I also intend for nothing in it to directly go to main.
+
+### Banking
+I have reached a point where I need to be able to deposit items into the bank. There are the following actions on bank:
+
+- Deposit Bank Gold
+- Deposit Bank Item
+- Withdraw Bank Item
+- Withdraw Bank Gold
+- Buy Bank Expansion
+- Get Bank Details
+- Get Bank Items
+
+For now, I will only focus on [Deposit Bank Item](https://api.artifactsmmo.com/docs/#/operations/action_deposit_bank_item_my__name__action_bank_deposit_item_post)
+
+The first thing to note is that it's more like depositing bank items because you can send multiple items.
