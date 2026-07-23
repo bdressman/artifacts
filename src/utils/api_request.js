@@ -14,8 +14,6 @@ export async function api_request(url, options = {}) {
         );
 
         error.code = data.error?.code;
-        error.status = response.status;
-        error.data = data;
 
         throw error;
     }
