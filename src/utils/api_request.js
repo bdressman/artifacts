@@ -1,6 +1,8 @@
 import { headers } from "./headers.js";
 
 export async function api_request(url, options = {}) {
+    console.log("Enter api_request()");
+
     const response = await fetch(url, {
         headers,
         ...options,
