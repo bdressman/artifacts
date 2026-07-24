@@ -185,3 +185,12 @@ I have reached a point where I need to be able to deposit items into the bank. T
 For now, I will only focus on [Deposit Bank Item](https://api.artifactsmmo.com/docs/#/operations/action_deposit_bank_item_my__name__action_bank_deposit_item_post)
 
 The first thing to note is that it's more like depositing bank items because you can send multiple items.
+
+### E-Stop
+Well, I got rate limited. 
+
+If you send too many requests to the server then you will get banned from using it for a period of time. See [Rate Limits](https://docs.artifactsmmo.com/api_guide/rate_limits/).
+
+I was running a gather script on the ash tree that ends up gathering sap and apples as well, but only deposited ash planks after the crafting stage. So, given enough time, the inventory fills up with sap and apples. At this point, I ended up sending requests with a full inventory. Since I wasn't handling such a case, I hammered the server with requests and exceeded my limit.
+
+So, shifting gears, I need to add some safety measures into everything to make sure this doesn't happen again.
