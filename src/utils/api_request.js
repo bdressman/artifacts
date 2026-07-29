@@ -45,7 +45,7 @@ export async function api_request(url, options = {}, max_retries = 3) {
         } catch (error) {
 
             const has_retries = retry < max_retries;
-            if (!is_network_error(error) || !has_retries){
+            if (!is_network_error(error) || !has_retries) {
                 throw error;
             }
 
