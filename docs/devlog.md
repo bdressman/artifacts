@@ -194,3 +194,16 @@ If you send too many requests to the server then you will get banned from using 
 I was running a gather script on the ash tree that ends up gathering sap and apples as well, but only deposited ash planks after the crafting stage. So, given enough time, the inventory fills up with sap and apples. At this point, I ended up sending requests with a full inventory. Since I wasn't handling such a case, I hammered the server with requests and exceeded my limit.
 
 So, shifting gears, I need to add some safety measures into everything to make sure this doesn't happen again.
+
+Update: I have added inventory full handling so that rate limit will not be reached.
+
+### Network Errors - UND_ERR_CONNECT_TIMEOUT
+
+I received this error this mornining while running my script. Apparently, it is for node.js through undici. See: https://undici-website-qhkojuxc3-openjs.vercel.app/api/Errors#class-connecttimeouterror
+
+So, I need to take a quick detour and fix this too.
+
+It looks like adding it to api_request.js will fix it for everything since all calls go through that.
+
+
+
