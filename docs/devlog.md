@@ -205,5 +205,14 @@ So, I need to take a quick detour and fix this too.
 
 It looks like adding it to api_request.js will fix it for everything since all calls go through that.
 
+### Small Success... and Rate Limited Again. Time for something a litle meatier than console.log
+
+I managed to create a looping runner that would mine copper ore (and there's some side materials) until inventory is full then convert them to copper bars and then deposit all of inventory into bank. I expected it to be able to run forever if I wanted. Inventory wouldn't fill up, the player would move to the next tile to do the work there, it would wait for all cooldowns properly, and it would just repeat.
+
+But I was wrong. 
+
+And I don't know why. I came home to a completely scrolled out console of errors (429 code_too_many_requests) with no way to know what actually started the runaway script. I specifically handle inventory and I saw that my inventory only had copper rocks and an event ticket but I was on the copper ore tile, so it must have failed when gathering. But what was the original problem? I do not know.
+
+Regardless, this means that I need to start logging my program a lot more robustly. It has outgrown simple console.log messages to tell me what is going on.
 
 
