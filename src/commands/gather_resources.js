@@ -4,7 +4,6 @@ import { perform } from '../utils/perform.js'
 // We will gather resources until the inventory is full (code=497)
 
 export async function gather_resources(character) {
-    console.log("Enter gather_resources()");
 
     while (true) {
         try {

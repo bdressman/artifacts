@@ -19,7 +19,6 @@ function sleep(milliseconds) {
 }
 
 export async function api_request(url, options = {}, max_retries = 3) {
-    console.log("Enter api_request()");
 
     for (let retry = 0; retry <= max_retries; retry++) {
         try {
