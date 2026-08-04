@@ -1,13 +1,10 @@
 import fs from 'node:fs/promises';
 
-// project root/logs/artifacts.log
 const log_dir = "./logs";
 const log_file = `${log_dir}/artifacts.log`;
-await fs.mkdir(log_dir, {recursive: true});
+await fs.mkdir(log_dir, { recursive: true });
 
 async function write_log(message) {
-    
-
     try {
         await fs.appendFile(log_file, `${message}\n`);
     } catch (error) {
