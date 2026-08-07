@@ -8,18 +8,18 @@ import logger from "../utils/logger.js"
 
 const character = config.CHARACTERS[0];
 
-async function gather_copper_ore() {
+async function gather_iron_ore() {
     try {
         let result;
 
-        // move to copper rocks
-        console.log("Moving to copper rocks");
-        logger.info("Moving to copper rocks at (2, 0)");
-        result = await perform(() => move(character, 2, 0));
+        // move to iron rocks
+        console.log("Moving to iron rocks");
+        logger.info("Moving to iron rocks at (1, 7)");
+        result = await perform(() => move(character, 1, 7));
 
         // Fill up inventory with resources
         console.log("Gathering...");
-        logger.info("Gathering copper rocks");
+        logger.info("Gathering iron rocks");
         await gather_resources(character);
 
         // move to the workshop
@@ -27,27 +27,27 @@ async function gather_copper_ore() {
         logger.info("Moving to mining workshop at (1, 5)");
         result = await perform(() => move(character, 1, 5));
 
-        // get the inventory from the result to see how many copper bars we can craft:
+        // get the inventory from the result to see how many iron bars we can craft:
         const { inventory: craftable } = result.character;
 
-        const quantity = craftable.find(i => i.code === "copper_ore")?.quantity ?? 0;
+        const quantity = craftable.find(i => i.code === "iron_ore")?.quantity ?? 0;
 
         // I know it takes 10 ore to make one bar, so for now I'll just directly write that in.
         const bars = Math.floor(quantity / 10);
 
         if (bars > 0) {
-            console.log(`Crafting ${bars} copper bar(s)`);
-            logger.info(`Crafting ${bars} copper bar(s)`);
+            console.log(`Crafting ${bars} iron bar(s)`);
+            logger.info(`Crafting ${bars} iron bar(s)`);
 
             result = await perform(() =>
                 crafting(character, {
-                    code: "copper_bar",
+                    code: "iron_bar",
                     quantity: bars
                 })
             );
         } else {
-            console.log("Not enough copper ore to craft a bar");
-            logger.warn("Not enough copper ore to craft a bar");
+            console.log("Not enough iron ore to craft a bar");
+            logger.warn("Not enough iron ore to craft a bar");
         }
 
         // move to the bank
@@ -57,7 +57,7 @@ async function gather_copper_ore() {
 
         const { inventory } = result.character;
 
-        const bankables = inventory.filter(i => i.code !== "" && i.code !== "copper_ore");
+        const bankables = inventory.filter(i => i.code !== "" && i.code !== "iron_ore");
 
         // deposit all in inventory
         console.log("Depositing inventory...");
@@ -77,4 +77,4 @@ async function gather_copper_ore() {
 }
 
 while (true)
-    await gather_copper_ore();
+    await gather_iron_ore();
