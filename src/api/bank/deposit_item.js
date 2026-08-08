@@ -1,4 +1,4 @@
-import { headers } from '../utils/headers.js'
+import { headers } from '../../utils/headers.js'
 
 /*
 Deposit multiple items in a bank on the character's map. 
