@@ -8,18 +8,18 @@ import logger from "../utils/logger.js"
 
 const character = config.CHARACTERS[0];
 
-async function gather_ash_wood() {
+async function gather_spruce_wood() {
     try {
         let result;
 
-        // move to ash tree
-        console.log("Moving to ash tree");
-        logger.info("Moving to ash tree at (-1, 0)");
-        result = await perform(() => move(character, -1, 0));
+        // move to spruce tree
+        console.log("Moving to spruce tree");
+        logger.info("Moving to spruce tree at (2, 6)");
+        result = await perform(() => move(character, 2, 6));
 
         // Fill up inventory with resources
         console.log("Gathering...");
-        logger.info("Gathering ash wood");
+        logger.info("Gathering spruce wood");
         await gather_resources(character);
 
         // move to the workshop
@@ -27,27 +27,27 @@ async function gather_ash_wood() {
         logger.info("Moving to woodcutting workshop at (-2, -3)");
         result = await perform(() => move(character, -2, -3));
 
-        // get the inventory from the result to see how many ash planks we can craft:
+        // get the inventory from the result to see how many spruce planks we can craft:
         const { inventory: craftable } = result.character;
 
-        const quantity = craftable.find(i => i.code === "ash_wood")?.quantity ?? 0;
+        const quantity = craftable.find(i => i.code === "spruce_wood")?.quantity ?? 0;
 
         // I know it takes 10 ash wood to make one plank, so for now I'll just directly write that in.
         const planks = Math.floor(quantity / 10);
 
         if (planks > 0) {
-            console.log(`Crafting ${planks} ash plank(s)`);
-            logger.info(`Crafting ${planks} ash plank(s)`);
+            console.log(`Crafting ${planks} spruce plank(s)`);
+            logger.info(`Crafting ${planks} spruce plank(s)`);
 
             result = await perform(() =>
                 crafting(character, {
-                    code: "ash_plank",
+                    code: "spruce_plank",
                     quantity: planks
                 })
             );
         } else {
-            console.log("Not enough ash wood to craft an ash plank");
-            logger.warn("Not enough ash wood to craft an ash plank");
+            console.log("Not enough spruce wood to craft a spruce plank");
+            logger.warn("Not enough spruce wood to craft a spruce plank");
         }
 
         // move to the bank
@@ -57,7 +57,7 @@ async function gather_ash_wood() {
 
         const { inventory } = result.character;
 
-        const bankables = inventory.filter(i => i.code !== "" && i.code !== "ash_wood");
+        const bankables = inventory.filter(i => i.code !== "" && i.code !== "spruce_wood");
 
         // deposit all in inventory
         console.log("Depositing inventory...");
@@ -77,4 +77,4 @@ async function gather_ash_wood() {
 }
 
 while (true)
-    await gather_ash_wood();
+    await gather_spruce_wood();
