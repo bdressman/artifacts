@@ -2,9 +2,21 @@ import { gather_resources } from "../commands/gather_resources.js";
 import { config } from "../config.js";
 import { move } from "../api/move.js";
 import { perform } from "../utils/perform.js";
-import { deposit_item } from "../api/deposit_item.js";
+import { deposit_item } from "../api/bank/deposit_item.js";
 import { crafting } from '../api/crafting.js'
 import logger from "../utils/logger.js"
+import {gather_resource} from "../behaviors/gather_resource.js";
+
+
+async function gather_sunflower_lean() {
+    await gather_resource({
+        resource_location: { name: "Sunflower Field", x: 2, y: 2 },
+        workshop_location: { name: "alchemy", x: 2, y: 3},
+        raw_item: { code: "sunflower", quantity: 3 },
+        craft_item: { code: "small_health_potion", quantity: 2 },
+        bank_location: { x: 4, y: 1 } 
+    });
+}
 
 const character = config.CHARACTERS[0];
 
@@ -76,5 +88,9 @@ async function gather_sunflower() {
     }
 }
 
+/*
 while (true)
     await gather_sunflower();
+*/
+
+await gather_sunflower_lean();
