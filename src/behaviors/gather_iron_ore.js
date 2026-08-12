@@ -2,9 +2,22 @@ import { gather_resources } from "../commands/gather_resources.js";
 import { config } from "../config.js";
 import { move } from "../api/move.js";
 import { perform } from "../utils/perform.js";
-import { deposit_item } from "../api/deposit_item.js";
+import { deposit_item } from "../api/bank/deposit_item.js";
 import { crafting } from '../api/crafting.js'
 import logger from "../utils/logger.js"
+import {gather_resource} from "../behaviors/gather_resource.js";
+
+
+async function gather_iron_ore_lean() {
+    await gather_resource({
+        resource_location: { name: "Iron Rocks", x: 1, y: 7 },
+        workshop_location: { name: "mining", x: 1, y: 5},
+        raw_item: { code: "iron_ore", quantity: 10 },
+        craft_item: { code: "iron_bar", quantity: 1 },
+        bank_location: { x: 4, y: 1 } 
+    });
+}
+
 
 const character = config.CHARACTERS[0];
 
@@ -76,5 +89,9 @@ async function gather_iron_ore() {
     }
 }
 
+/*
 while (true)
     await gather_iron_ore();
+*/
+
+await gather_iron_ore_lean();
