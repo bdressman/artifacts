@@ -1,97 +1,14 @@
-import { gather_resources } from "../commands/gather_resources.js";
-import { config } from "../config.js";
-import { move } from "../api/move.js";
-import { perform } from "../utils/perform.js";
-import { deposit_item } from "../api/bank/deposit_item.js";
-import { crafting } from '../api/crafting.js'
-import logger from "../utils/logger.js"
-import {gather_resource} from "../behaviors/gather_resource.js";
+import { gather_resource } from "./gather_resource.js";
 
 
-async function gather_iron_ore_lean() {
+async function gather_iron_ore() {
     await gather_resource({
         resource_location: { name: "Iron Rocks", x: 1, y: 7 },
-        workshop_location: { name: "mining", x: 1, y: 5},
+        workshop_location: { name: "mining", x: 1, y: 5 },
         raw_item: { code: "iron_ore", quantity: 10 },
         craft_item: { code: "iron_bar", quantity: 1 },
-        bank_location: { x: 4, y: 1 } 
+        bank_location: { x: 4, y: 1 }
     });
 }
 
-
-const character = config.CHARACTERS[0];
-
-async function gather_iron_ore() {
-    try {
-        let result;
-
-        // move to iron rocks
-        console.log("Moving to iron rocks");
-        logger.info("Moving to iron rocks at (1, 7)");
-        result = await perform(() => move(character, 1, 7));
-
-        // Fill up inventory with resources
-        console.log("Gathering...");
-        logger.info("Gathering iron rocks");
-        await gather_resources(character);
-
-        // move to the workshop
-        console.log("Moving to workshop");
-        logger.info("Moving to mining workshop at (1, 5)");
-        result = await perform(() => move(character, 1, 5));
-
-        // get the inventory from the result to see how many iron bars we can craft:
-        const { inventory: craftable } = result.character;
-
-        const quantity = craftable.find(i => i.code === "iron_ore")?.quantity ?? 0;
-
-        // I know it takes 10 ore to make one bar, so for now I'll just directly write that in.
-        const bars = Math.floor(quantity / 10);
-
-        if (bars > 0) {
-            console.log(`Crafting ${bars} iron bar(s)`);
-            logger.info(`Crafting ${bars} iron bar(s)`);
-
-            result = await perform(() =>
-                crafting(character, {
-                    code: "iron_bar",
-                    quantity: bars
-                })
-            );
-        } else {
-            console.log("Not enough iron ore to craft a bar");
-            logger.warn("Not enough iron ore to craft a bar");
-        }
-
-        // move to the bank
-        console.log("Moving to bank");
-        logger.info("Moving to bank at (4, 1)");
-        result = await perform(() => move(character, 4, 1));
-
-        const { inventory } = result.character;
-
-        const bankables = inventory.filter(i => i.code !== "" && i.code !== "iron_ore");
-
-        // deposit all in inventory
-        console.log("Depositing inventory...");
-        logger.info("Depositing inventory");
-        for (const item of bankables) {
-            console.log(`Depositing ${item.quantity} ${item.code}`);
-            logger.info(`Depositing ${item.quantity} ${item.code}`);
-            await perform(() => deposit_item(character, item.code, item.quantity));
-        }
-        console.log("All items deposited into bank.");
-        logger.info("All items deposited into bank.");
-    }
-    catch (error) {
-        console.log(error);
-        logger.fail(error);
-    }
-}
-
-/*
-while (true)
-    await gather_iron_ore();
-*/
-
-await gather_iron_ore_lean();
+await gather_iron_ore();
