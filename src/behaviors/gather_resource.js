@@ -59,7 +59,7 @@ export async function gather_resource({
 
         const quantity = workshop_inventory.find(i => i.code === raw_item.code)?.quantity ?? 0;
 
-        const craft_quantity = Math.floor(quantity / raw_item.quantity);
+        const craft_quantity = Math.floor(quantity / raw_item.quantity) * craft_item.quantity;
 
         if (craft_quantity > 0) {
             console.log(`Crafting ${craft_quantity} ${craft_item.code}`);
