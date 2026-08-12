@@ -2,9 +2,20 @@ import { gather_resources } from "../commands/gather_resources.js";
 import { config } from "../config.js";
 import { move } from "../api/move.js";
 import { perform } from "../utils/perform.js";
-import { deposit_item } from "../api/deposit_item.js";
+import { deposit_item } from "../api/bank/deposit_item.js";
 import { crafting } from '../api/crafting.js'
 import logger from "../utils/logger.js"
+import {gather_resource} from "../behaviors/gather_resource.js";
+
+async function gather_gudgeon_lean() {
+    await gather_resource({
+        resource_location: { name: "Gudgeon Spot", x: 4, y: 2 },
+        workshop_location: { name: "cooking", x: 1, y: 1},
+        raw_item: { code: "gudgeon", quantity: 1 },
+        craft_item: { code: "cooked_gudgeon", quantity: 1 },
+        bank_location: { x: 4, y: 1 } 
+    });
+}
 
 const character = config.CHARACTERS[0];
 
@@ -77,5 +88,9 @@ async function gather_gudgeon() {
     }
 }
 
+/*
 while (true)
     await gather_gudgeon();
+*/
+
+await gather_gudgeon_lean();
