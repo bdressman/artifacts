@@ -5,8 +5,19 @@ import { perform } from "../utils/perform.js";
 import { deposit_item } from "../api/bank/deposit_item.js";
 import { crafting } from '../api/crafting.js'
 import logger from "../utils/logger.js"
+import {gather_resource} from "../behaviors/gather_resource.js";
 
 const character = config.CHARACTERS[0];
+
+async function gather_ash_wood_lean() {
+    await gather_resource({
+        resource_location: { name: "ash tree", x: -1, y: 0 },
+        workshop_location: { name: "woodcutting", x: -2, y: -3},
+        raw_item: { code: "ash_wood", quantity: 10 },
+        craft_item: { code: "ash_plank", quantity: 1 },
+        bank_location: { x: 4, y: 1 } 
+    });
+}
 
 async function gather_ash_wood() {
     try {
@@ -76,5 +87,9 @@ async function gather_ash_wood() {
     }
 }
 
+/*
 while (true)
     await gather_ash_wood();
+*/
+
+await gather_ash_wood_lean();
