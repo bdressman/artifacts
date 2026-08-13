@@ -12,4 +12,9 @@ async function gather_ash_wood(character) {
     });
 }
 
-await gather_ash_wood(process.argv[2]);
+//await gather_ash_wood(process.argv[2]);
+
+
+await Promise.all(
+    config.CHARACTERS.map(character => gather_ash_wood(character))
+);
