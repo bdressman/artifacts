@@ -27,9 +27,10 @@ import { deposit_item } from "../api/bank/deposit_item.js";
 import { crafting } from "../api/crafting.js";
 import logger from "../utils/logger.js";
 
-const character = config.CHARACTERS[0];
+//const character = config.CHARACTERS[0];
 
 export async function gather_resource({
+    character,
     resource_location,  // { name, x, y }
     workshop_location,  // { name, x, y }
     raw_item,           // { code, quantity }

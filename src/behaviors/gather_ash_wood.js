@@ -1,7 +1,9 @@
 import { gather_resource } from "./gather_resource.js";
+import { config } from "../config.js";
 
-async function gather_ash_wood() {
+async function gather_ash_wood(character) {
     await gather_resource({
+        character,
         resource_location: { name: "ash tree", x: -1, y: 0 },
         workshop_location: { name: "woodcutting", x: -2, y: -3 },
         raw_item: { code: "ash_wood", quantity: 10 },
@@ -10,4 +12,4 @@ async function gather_ash_wood() {
     });
 }
 
-await gather_ash_wood();
+await gather_ash_wood(process.argv[2]);
