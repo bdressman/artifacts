@@ -27,6 +27,8 @@ npm start
 
 ## Documentation
 - [Development Journal](docs/devlog.md)
+<!-- Let's worry about these later when they are needed
 - [Architecture Notes](docs/architecture.md)
 - [Future Ideas](docs/ideas.md)
+-->
 - [TODO Items](docs/todo.md)
