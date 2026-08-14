@@ -215,4 +215,22 @@ And I don't know why. I came home to a completely scrolled out console of errors
 
 Regardless, this means that I need to start logging my program a lot more robustly. It has outgrown simple console.log messages to tell me what is going on.
 
+## Where are We?
 
+So, a lot has happened. I removed all of the tutorial code from when I started working on this. I felt it was just noise at this point, but it is in source control history, so it does continue to communicate how I was learning the system.
+
+Also, I have created an infinitely running gather script. It was successful for 2 days, which is quite nice. 
+
+But we aren't really interested in that in the long run either. See, a lot of right now is just taking time to understand how I interact with this game in the first place. So, that part is taking some considerable prototyping and experimentation.
+
+I also created a side project and generated the [Open API Specification](https://api.artifactsmmo.com/openapi.json) to see what was created, but my project is not currently at the state that this sort of heavy-lifting is required. I will wait and potentially do it in the future.
+
+Going back to my progress, I created the other 4 characters in game and updated one command to run all of them simultaneously. It was successful, so at least that shows me nothing is locking up anywhere. At this point though, I want to pull away from automating my characters and instead focus on world knowledge.
+
+My next effort will be creating the part of the application that should only be run at the start of the season, which will fetch all of the static data about the game and store to a database. From there, my characters will query database details instead of making API calls for every little thing.
+
+I am certainly jumping around from topic to topic on this with no real overall goal or design, but I suspect this is to be expected when it comes to interacting with a system someone else created. I have to understand the way the game is played first. Then, I have to create a way to play that part in isolation. Then, I need to be sure I can automate it in a full game loop. Then, I can isolate each part such that it becomes a single behavior, which brings me to the next point.
+
+I will create orchestration for my characters. For example, consider a need is placed into a queue of something like "I need iron_bar(8), spruce_plank(2), jasper_crystal(1) for iron_pickaxe". Then, we'll break it into individual tasks of "Need: iron_bar(8)", "Need: spruce_plank(2)", "Need: jasper_crystal(1)" which gets further broken down to "Need: iron_ore(10 * 8)", "Need: spruce_wood(10 * 2)", and then jasper_crystal is complicated too because apparently it comes from the Tasks Trader who trades 8 Tasks Coin for one, so we'd have to get tasks and all that stuff and find out everything needed. Once we identify the job can be done, we send everyone out to do their part. 
+
+But, I need world data first. Obviously, I don't know enough for any kind of intelligent crafting mechanics. My characters are just good enough to gather - craft from raw - bank - repeat right now. 
