@@ -1,13 +1,13 @@
 import { headers } from '../utils/headers.js'
 import { api_request } from '../utils/api_request.js';
 
-export async function crafting(character, what) {
+export async function crafting(character, { code, quantity = 1 }) {
 
     const url = `https://api.artifactsmmo.com/my/${character}/action/crafting`;
 
     return api_request(url, {
         method: "POST",
         headers,
-        body: JSON.stringify({ code: what })
+        body: JSON.stringify({ code, quantity })
     });
 }
